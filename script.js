@@ -15,14 +15,21 @@ let password="";
 let passwordlength=10 ;
 let checkcount=1;
 handleSlider();
+setIndicator("#ccc");
+
 
 function handleSlider(){
     inputslider.value=passwordlength;
     lengthDisplay.innerText=passwordlength;
+
+    const min=inputslider.min;
+    const max=inputslider.max;
+    inputslider.style.backgroundSize = ((passwordlength-min)*100/(max-min))+"% 100%";
 }
 
 function setIndicator(color){
     indicator.style.backgroundColor = color;
+    indicator.style.boxShadow =`0px 0px 12px 1px ${color}`;
 } 
 
 function getRndInteger(min,max){
